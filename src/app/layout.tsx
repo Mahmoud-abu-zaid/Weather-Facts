@@ -1,4 +1,6 @@
 import "../assets/style/globals.css";
+import BackGroundVideo from "@/components/backgroundVideo";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -6,7 +8,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="">{children}</body>
+      <body className="">
+        <BackGroundVideo>{children}</BackGroundVideo>
+      </body>
     </html>
   );
 }
