@@ -22,8 +22,8 @@ export default function BackGroundVideo({ children }: { children: React.ReactNod
 
         <div className="absolute inset-0 bg-black/60  pointer-events-none" />
 
-        <div className="relative z-10 flex items-center justify-center h-full px-4">
-          <div className="text-center text-white max-w-3xl">{children}</div>
+        <div className="relative z-10">
+          <div>{children}</div>
         </div>
       </div>
     </div>
