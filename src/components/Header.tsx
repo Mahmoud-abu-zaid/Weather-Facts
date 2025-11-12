@@ -5,38 +5,52 @@ import { FaXmark } from "react-icons/fa6";
 import { HiOutlineMenu } from "react-icons/hi";
 
 export default function Header() {
-  const [toggleMenu, setToggleMenu] = useState(false);
-  const showMenu = toggleMenu ? "hidden" : "flex";
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <header className=" py-4 px-12 w-full flex justify-center text-white bg-[#1B262C]/70 rounded-b-[40%] fixed ">
-      <div className="flex justify-around items-center container mb-2">
-        <Link href={"/"} className={`md:text-4xl text-2xl`}>
-          Dark Weather
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#1B262C]/70 backdrop-blur-md text-white shadow-md">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-12">
+        <Link href="/" className="text-2xl md:text-3xl font-semibold tracking-wide">
+          Dark <span className="text-[#00ADB5]">Weather</span>
         </Link>
-        <div className=" flex justify-center">
-          <ul
-            className={`${showMenu} bg-[#1B262C] lg:bg-[#1B262C]/0 flex lg:flex-row flex-col absolute lg:static top-22 gap-2 lg:gap-15 text-lg lg:p-0 p-5 text-center lg:w-fit rounded-4xl left-0 right-0 mx-auto w-[95%]`}
-          >
-            <li className="lg:hover:bg-[#2d404b]/0 hover:bg-[#2d404b] cursor-pointer lg:w-fit w-full lg:py-0 py-2 rounded-2xl">
-              <Link href="/">Home</Link>
-            </li>
-            <li className="lg:hover:bg-[#2d404b]/0 hover:bg-[#2d404b] cursor-pointer lg:w-fit w-full lg:py-0 py-2 rounded-2xl">
-              <Link href="/downloadApp">Download App</Link>
-            </li>
-            <li className="lg:hover:bg-[#2d404b]/0 hover:bg-[#2d404b] cursor-pointer lg:w-fit w-full lg:py-0 py-2 rounded-2xl">
-              <Link href="/contactus">Contact us</Link>
-            </li>
-          </ul>
-        </div>
-        {toggleMenu ? (
-          <HiOutlineMenu className={`block lg:hidden text-3xl cursor-pointer`} onClick={() => setToggleMenu((state) => !state)} />
-        ) : (
-          <FaXmark className={`block lg:hidden text-3xl cursor-pointer`} onClick={() => setToggleMenu((state) => !state)} />
-        )}
-        <Link href="/register" className="text-xl rounded-xl lg:flex hidden ">
-          Sign up
+
+        <nav className="hidden lg:flex gap-10 text-lg">
+          <Link href="/" className="hover:text-[#00ADB5] transition-colors">
+            Home
+          </Link>
+          <Link href="/downloadApp" className="hover:text-[#00ADB5] transition-colors">
+            Download App
+          </Link>
+          <Link href="/contactus" className="hover:text-[#00ADB5] transition-colors">
+            Contact Us
+          </Link>
+        </nav>
+
+        <Link href="/register" className="hidden lg:inline-block bg-[#00ADB5] hover:bg-[#008C96] text-white px-4 py-2 rounded-xl text-sm font-medium transition">
+          Sign Up
         </Link>
+
+        <button onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden text-3xl focus:outline-none" aria-label="Toggle menu">
+          {menuOpen ? <FaXmark /> : <HiOutlineMenu />}
+        </button>
       </div>
+
+      {menuOpen && (
+        <div className="lg:hidden bg-[#1B262C]/90 backdrop-blur-xl flex flex-col items-center pb-4 text-lg animate-slideDown">
+          <Link href="/" className="hover:text-[#00ADB5] w-full text-center py-2 hover:bg-[#172b36]">
+            Home
+          </Link>
+          <Link href="/downloadApp" className="hover:text-[#00ADB5] w-full text-center py-2 hover:bg-[#172b36]">
+            Download App
+          </Link>
+          <Link href="/contactus" className="hover:text-[#00ADB5] w-full text-center py-2 hover:bg-[#172b36] mb-3">
+            Contact Us
+          </Link>
+          <Link href="/register" className="bg-[#00ADB5] hover:bg-[#008C96] px-4 py-2.5 rounded-xl text-sm font-medium">
+            Sign Up
+          </Link>
+        </div>
+      )}
     </header>
   );
 }
