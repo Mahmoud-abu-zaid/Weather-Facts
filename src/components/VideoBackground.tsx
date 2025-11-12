@@ -1,7 +1,6 @@
 export default function BackGroundVideo({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative w-full h-screen">
-      {/* الفيديو في الخلفية */}
       <video
         className="fixed top-0 left-0 w-full h-full object-cover z-0"
         autoPlay
@@ -9,7 +8,7 @@ export default function BackGroundVideo({ children }: { children: React.ReactNod
         muted
         playsInline
         preload="auto"
-        poster="../../img/poster.webp"
+        poster="../../img/poster.wepb"
         style={{
           imageRendering: "auto",
           transform: "translateZ(0)",
@@ -19,10 +18,8 @@ export default function BackGroundVideo({ children }: { children: React.ReactNod
         <source src="../../video/bg.mp4" type="video/mp4" />
       </video>
 
-      {/* Overlay لإضافة تأثير داكن */}
-      <div className="fixed inset-0 bg-black/20 z-10 pointer-events-none" />
+      <div className="fixed inset-0 bg-black/30 z-10 pointer-events-none" />
 
-      {/* محتوى الصفحة */}
       <div className="relative z-20">{children}</div>
     </div>
   );
