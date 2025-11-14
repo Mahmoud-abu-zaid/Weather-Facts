@@ -27,30 +27,30 @@ export default function Weather({ city: defaultCity = "Cairo" }) {
     switch (WeatherConditions.toLowerCase()) {
       case "sunny":
       case "clear":
-        return "/img/sun.wepb";
+        return "/img/sun.webp";
       case "partly cloudy":
       case "cloudy":
       case "overcast":
-        return "/img/cloudy.wepb";
+        return "/img/cloudy.webp";
       case "rain":
       case "light rain":
       case "patchy rain possible":
       case "patchy rain nearby":
       case "moderate rain":
       case "heavy rain":
-        return "/img/rain.wepb";
+        return "/img/rain.webp";
       case "snow":
       case "light snow":
       case "snow shower":
       case "heavy snow":
-        return "/img/snow.wepb";
+        return "/img/snow.webp";
       case "thunderstorm":
       case "thundery outbreaks possible":
       case "fog":
       case "mist":
-        return "/img/thunderstorm.wepb";
+        return "/img/thunderstorm.webp";
       default:
-        return "/img/sun.wepb";
+        return "/img/sun.webp";
     }
   }
   return (
@@ -78,7 +78,7 @@ export default function Weather({ city: defaultCity = "Cairo" }) {
               <div className="flex sm:flex-row flex-col justify-between gap-3 items-center ">
                 <div className="flex flex-col gap-2">
                   <h3 className="text-2xl py-2">Today</h3>
-                  <p >
+                  <p>
                     {new Date(data.location.localtime).toLocaleString("en-US", {
                       weekday: "long",
                       month: "short",
