@@ -32,6 +32,7 @@ export default function Weather({ city: defaultCity = "Cairo" }) {
       case "cloudy":
       case "overcast":
         return "/img/cloudy.webp";
+      case "Patchy light drizzle":
       case "rain":
       case "light rain":
       case "patchy rain possible":
@@ -43,6 +44,7 @@ export default function Weather({ city: defaultCity = "Cairo" }) {
       case "light snow":
       case "snow shower":
       case "heavy snow":
+      case "moderate or heavy snow showers":
         return "/img/snow.webp";
       case "thunderstorm":
       case "thundery outbreaks possible":
@@ -97,7 +99,7 @@ export default function Weather({ city: defaultCity = "Cairo" }) {
                   </p>
                 </div>
                 <div>
-                  <Image src={wheaterImage(data.current.condition.text)} alt={data.current.condition.text} width={140} height={140} />
+                  <Image src={wheaterImage(data.current.condition.text)} alt={data.current.condition.text} width={140} height={140} priority />
                 </div>
               </div>
             </div>
@@ -123,7 +125,7 @@ export default function Weather({ city: defaultCity = "Cairo" }) {
                         </p>
                       </div>
                       <div>
-                        <Image src={wheaterImage(day.day.condition.text)} alt={day.day.condition.text} width={120} height={120} />
+                        <Image src={wheaterImage(day.day.condition.text)} alt={day.day.condition.text} width={120} height={120} priority />
                       </div>
                     </div>
                   </div>
