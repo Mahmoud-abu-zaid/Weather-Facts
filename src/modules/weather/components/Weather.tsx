@@ -39,12 +39,22 @@ export default function Weather({ city: defaultCity = "Cairo" }) {
       case "patchy rain nearby":
       case "moderate rain":
       case "heavy rain":
+      case "light drizzle":
+      case "heavy rain at times":
+      case "moderate or heavy rain shower":
+      case "torrential rain shower":
+      case "light rain shower":
+      case "Light freezing rain":
+      case "moderate or heavy freezing rain":
         return "/img/rain.webp";
       case "snow":
       case "light snow":
       case "snow shower":
       case "heavy snow":
+      case "Patchy heavy snow":
       case "moderate or heavy snow showers":
+      case "moderate or heavy sleet":
+      case "blowing snow":
         return "/img/snow.webp";
       case "thunderstorm":
       case "thundery outbreaks possible":
