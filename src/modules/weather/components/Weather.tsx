@@ -1,70 +1,17 @@
 "use client";
-import { useState } from "react";
-import { useWeather } from "../hooks/useWeather";
 import Search from "./Search";
-import { WiBarometer, WiCelsius, WiCloud, WiDaySunny, WiHumidity, WiRaindrops, WiStrongWind, WiThermometer } from "react-icons/wi";
-import { FaCalendarDay } from "react-icons/fa6";
 import Image from "next/image";
 import Loading from "@/components/loading";
+import { FaCalendarDay } from "react-icons/fa6";
+import { ForecastDay } from "../types/weatherType";
+import { wheaterImage } from "../utils/weatherImage";
+import { useWeatherFacts } from "../hooks/useWeather";
+import { WiBarometer, WiCelsius, WiCloud, WiDaySunny, WiHumidity, WiRaindrops, WiStrongWind, WiThermometer } from "react-icons/wi";
 
-interface ForecastDay {
-  date: string;
-  day: {
-    maxtemp_c: number;
-    mintemp_c: number;
-    condition: {
-      text: string;
-    };
-  };
-}
-export default function Weather({ city: defaultCity = "Cairo" }) {
-  const [city, setCity] = useState(defaultCity);
-  const { data, isLoading, error } = useWeather(city);
-
+export default function Weather() {
+  const { data, isLoading, error, setCity } = useWeatherFacts({ city: "Cairo" });
   const forecastDays: ForecastDay[] = data?.forecast?.forecastday || [];
   const nextDay = forecastDays.slice(1);
-  function wheaterImage(WeatherConditions: string) {
-    switch (WeatherConditions.toLowerCase()) {
-      case "sunny":
-      case "clear":
-        return "/img/sun.webp";
-      case "partly cloudy":
-      case "cloudy":
-      case "overcast":
-        return "/img/cloudy.webp";
-      case "Patchy light drizzle":
-      case "rain":
-      case "light rain":
-      case "patchy rain possible":
-      case "patchy rain nearby":
-      case "moderate rain":
-      case "heavy rain":
-      case "light drizzle":
-      case "heavy rain at times":
-      case "moderate or heavy rain shower":
-      case "torrential rain shower":
-      case "light rain shower":
-      case "Light freezing rain":
-      case "moderate or heavy freezing rain":
-        return "/img/rain.webp";
-      case "snow":
-      case "light snow":
-      case "snow shower":
-      case "heavy snow":
-      case "Patchy heavy snow":
-      case "moderate or heavy snow showers":
-      case "moderate or heavy sleet":
-      case "blowing snow":
-        return "/img/snow.webp";
-      case "thunderstorm":
-      case "thundery outbreaks possible":
-      case "fog":
-      case "mist":
-        return "/img/thunderstorm.webp";
-      default:
-        return "/img/sun.webp";
-    }
-  }
   return (
     <>
       <div>

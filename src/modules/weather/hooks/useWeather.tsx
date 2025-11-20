@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getWeatherServices } from "../services/weatherServises";
 
@@ -9,3 +10,14 @@ export const useWeather = (location: string) => {
     staleTime: 1000 * 60 * 5,
   });
 };
+
+export function useWeatherFacts({ city: defaultCity = "Cairo" }: { city?: string }) {
+  const [city, setCity] = useState(defaultCity);
+  const { data, isLoading, error } = useWeather(city);
+  return {
+    data,
+    isLoading,
+    error,
+    setCity,
+  };
+}
