@@ -24,7 +24,7 @@ export default function Weather() {
         </div>
       )}
       {error && (
-        <div className="flex flex-col justify-center items-center h-[50vh] gap-3.5 text-white ">
+        <div className="flex flex-col justify-center text-center items-center h-[50vh] gap-3.5 text-white ">
           <h3 className="text-6xl">Oops</h3>
           <p className="text-white text-2xl">Data for that city is unavailable. Please try again.</p>
         </div>

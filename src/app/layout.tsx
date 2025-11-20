@@ -58,6 +58,7 @@ export const metadata = {
     type: "website",
   },
 };
+
 const exo_2 = Exo_2();
 export default function RootLayout({
   children,
@@ -66,7 +67,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={exo_2.className}>
+      <body className={`${exo_2.className} relative w-full min-h-screen overflow-x-hidden`}>
         <QueryProviders>
           <BackGroundVideo>
             <Header />
