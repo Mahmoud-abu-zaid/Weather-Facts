@@ -56,7 +56,7 @@ export default function Weather() {
                   </p>
                 </div>
                 <div>
-                  <Image src={wheaterImage(data.current.condition.text)} alt={data.current.condition.text} width={140} height={140} priority />
+                  <Image src={wheaterImage(data.current.condition.text)} alt={data.current.condition.text} width={140} height={140} priority loading="eager" />
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function Weather() {
                         </p>
                       </div>
                       <div>
-                        <Image src={wheaterImage(day.day.condition.text)} alt={day.day.condition.text} width={120} height={120} priority />
+                        <Image src={wheaterImage(day.day.condition.text)} alt={day.day.condition.text} width={120} height={120} priority loading="eager" />
                       </div>
                     </div>
                   </div>
